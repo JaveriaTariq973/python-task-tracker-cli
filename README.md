@@ -330,3 +330,6 @@ Cristopher — QA Engineer
 ---
 
 
+## Running the unit tests
+See docs/how_to_run_tests.md for setup, test groups, parallel execution and execution order.
+Quick start: pip install -r requirements.txt, then pytest -v  (or python run_tests.py smoke)

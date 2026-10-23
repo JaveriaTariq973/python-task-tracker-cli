@@ -7,6 +7,7 @@ from app.cli import handle_command
 from app.task_services import change_task_status, generate_next_id, list_tasks
 
 pytestmark = pytest.mark.datadriven
+pytestmark = pytest.mark.csv_data
 
 DATA_DIR = Path(__file__).parent / "data"
 

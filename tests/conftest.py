@@ -1,8 +1,4 @@
-"""Shared fixtures for all unit tests.
 
-Har test ek temporary tasks.json use karta hai, is liye asli tasks.json
-kabhi touch nahi hoti aur tests parallel (pytest -n) mein bhi safe hain.
-"""
 import json
 
 import pytest
@@ -56,3 +52,16 @@ def fixed_time(monkeypatch):
     """Make task_services use a predictable timestamp."""
     monkeypatch.setattr(task_services, "get_current_timestamp", lambda: FIXED_TIME)
     return FIXED_TIME
+
+GROUP_ORDER = ["utils", "storage", "services", "cli"]
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_collection_modifyitems(items):
+    for item in items:
+        group = next(
+            (i for i, name in enumerate(GROUP_ORDER) if item.get_closest_marker(name)),
+            len(GROUP_ORDER),
+        )
+        smoke_first = 0 if item.get_closest_marker("smoke") else 1
+        item.add_marker(pytest.mark.order(group * 10 + smoke_first + 1))
