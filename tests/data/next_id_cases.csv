@@ -1,0 +1,6 @@
+test_id,ids,expected
+nid_empty,,1
+nid_single,1,2
+nid_consecutive,1;2;3,4
+nid_gaps_unordered,1;5;3,6
+nid_two_to_three_digits,99,100

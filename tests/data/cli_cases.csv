@@ -1,0 +1,12 @@
+test_id,args,match,expected
+cli_no_args,,equals,Debes proporcionar un comando.
+cli_unknown_foo,foo,equals,Comando no reconocido: foo
+cli_unknown_upper,ADD,equals,Comando no reconocido: ADD
+cli_add_ok,add|Buy milk,equals,Tarea agregada correctamente (ID: 1)
+cli_add_missing_description,add,startswith,Uso: python main.py add
+cli_list_empty,list,equals,No hay tareas para mostrar.
+cli_list_invalid_status,list|finished,startswith,Error: Estado inválido
+cli_delete_missing_id,delete,startswith,Uso: python main.py delete
+cli_delete_nonexistent,delete|99,startswith,Error: No existe
+cli_update_missing_args,update|1,startswith,Uso: python main.py update
+cli_mark_done_missing_id,mark-done,startswith,Uso: python main.py mark-done

@@ -1,0 +1,8 @@
+test_id,status,expected
+ls_todo,todo,ok
+ls_in_progress,in-progress,ok
+ls_done,done,ok
+ls_wrong_word,finished,error
+ls_uppercase,DONE,error
+ls_mixed_case,Todo,error
+ls_empty,,error

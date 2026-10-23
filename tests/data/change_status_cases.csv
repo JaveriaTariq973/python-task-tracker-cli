@@ -1,0 +1,10 @@
+test_id,task_id,status,expected
+cs_todo,1,todo,ok
+cs_in_progress,1,in-progress,ok
+cs_done,1,done,ok
+cs_bad_status,1,finished,invalid_status
+cs_bad_status_uppercase,1,DONE,invalid_status
+cs_id_zero,0,done,not_found
+cs_id_negative,-1,done,not_found
+cs_id_too_big,999,done,not_found
+cs_both_invalid,999,wrong,invalid_status
